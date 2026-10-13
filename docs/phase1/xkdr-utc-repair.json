@@ -1,0 +1,24 @@
+{
+  "station": 8118,
+  "xkdr_sensor_id": 9010100010,
+  "raw_rows": 0,
+  "from": null,
+  "to": null,
+  "daily_minimum_hour_ist_before": 11,
+  "applied": true,
+  "note": "no raw rows to back up (a previous run already removed them); re-ingesting",
+  "reingest": {
+    "stations": 72,
+    "matched_existing": 68,
+    "created": 4,
+    "rows": 34590,
+    "failed_windows": 0,
+    "requests": 77
+  },
+  "features": {
+    "rows_added": 39421,
+    "rows_total": 8906358,
+    "digest": "f0f2bc731c98cceb407da467e2f0337535da56cd92efa0275624f857f7a330b8"
+  },
+  "daily_minimum_hour_ist_after": 17
+}

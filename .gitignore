@@ -1,0 +1,122 @@
+# =============================================================================
+# AEROCAST NCR - Root .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Secrets, Environment Files & Credentials
+# -----------------------------------------------------------------------------
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Explicitly preserve example/template configuration files
+!.env.example
+!.env.*.example
+!*.env.example
+
+# -----------------------------------------------------------------------------
+# Python Bytecode, Caches & Virtual Environments
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+venv*/
+.venv*/
+
+# Testing & quality caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# -----------------------------------------------------------------------------
+# Node.js & Next.js Build Outputs & Dependencies
+# -----------------------------------------------------------------------------
+node_modules/
+.next/
+out/
+.turbo/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Auto-copied MapLibre web worker asset (copied by web/scripts/copy-maplibre-worker.mjs)
+web/public/maplibre/
+
+# -----------------------------------------------------------------------------
+# Local Storage, SQLite Databases & Heavy Datasets
+# -----------------------------------------------------------------------------
+# All local application runtime state, 16GB history store, Chroma vectors, and model weights
+api/data/
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-shm
+*.sqlite-wal
+
+# -----------------------------------------------------------------------------
+# Operating System & IDE Configurations
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Editors & IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.claude/

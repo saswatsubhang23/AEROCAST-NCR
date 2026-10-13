@@ -1,0 +1,11 @@
+# Offline training and (optional) local inference. Not needed to run the web API without a local model.
+# Pinned to the versions the recorded runs were trained with; a saved model refuses to load under different
+# scikit-learn / xgboost / lightgbm versions (see docs/ml-training-pipeline.md).
+-r requirements.txt
+joblib==1.6.0
+lightgbm==4.7.0
+numpy==2.5.3
+psutil==7.2.2
+scikit-learn==1.9.1
+scipy==1.18.1
+xgboost==3.4.1

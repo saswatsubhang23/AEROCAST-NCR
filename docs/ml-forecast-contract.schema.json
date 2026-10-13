@@ -1,0 +1,560 @@
+{
+  "request": {
+    "$defs": {
+      "ForecastLocation": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "AEROCAST location id (e.g. 'delhi'), if known",
+            "title": "Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Name"
+          },
+          "lat": {
+            "maximum": 90,
+            "minimum": -90,
+            "title": "Lat",
+            "type": "number"
+          },
+          "lon": {
+            "maximum": 180,
+            "minimum": -180,
+            "title": "Lon",
+            "type": "number"
+          }
+        },
+        "required": [
+          "lat",
+          "lon"
+        ],
+        "title": "ForecastLocation",
+        "type": "object"
+      }
+    },
+    "description": "Sent by AEROCAST to the provider (POST {ML_FORECAST_URL}/forecast).",
+    "properties": {
+      "location": {
+        "$ref": "#/$defs/ForecastLocation"
+      },
+      "issued_at": {
+        "format": "date-time",
+        "title": "Issued At",
+        "type": "string"
+      },
+      "horizon_hours": {
+        "maximum": 72,
+        "minimum": 1,
+        "title": "Horizon Hours",
+        "type": "integer"
+      },
+      "pollutants": {
+        "items": {
+          "enum": [
+            "pm25",
+            "pm10",
+            "no2",
+            "so2",
+            "co",
+            "o3"
+          ],
+          "type": "string"
+        },
+        "maxItems": 6,
+        "minItems": 1,
+        "title": "Pollutants",
+        "type": "array"
+      }
+    },
+    "required": [
+      "location",
+      "issued_at",
+      "horizon_hours",
+      "pollutants"
+    ],
+    "title": "ForecastRequest",
+    "type": "object"
+  },
+  "response": {
+    "$defs": {
+      "DataFreshness": {
+        "description": "How old the newest input was when the forecast was made.",
+        "properties": {
+          "newest_input_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Newest Input At"
+          },
+          "input_age_hours": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Input Age Hours"
+          },
+          "max_age_hours": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "the age beyond which the provider refuses to forecast",
+            "title": "Max Age Hours"
+          },
+          "status": {
+            "enum": [
+              "fresh",
+              "stale",
+              "unknown"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "DataFreshness",
+        "type": "object"
+      },
+      "ForecastLocation": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "AEROCAST location id (e.g. 'delhi'), if known",
+            "title": "Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Name"
+          },
+          "lat": {
+            "maximum": 90,
+            "minimum": -90,
+            "title": "Lat",
+            "type": "number"
+          },
+          "lon": {
+            "maximum": 180,
+            "minimum": -180,
+            "title": "Lon",
+            "type": "number"
+          }
+        },
+        "required": [
+          "lat",
+          "lon"
+        ],
+        "title": "ForecastLocation",
+        "type": "object"
+      },
+      "PollutantForecast": {
+        "properties": {
+          "pollutant": {
+            "enum": [
+              "pm25",
+              "pm10",
+              "no2",
+              "so2",
+              "co",
+              "o3"
+            ],
+            "title": "Pollutant",
+            "type": "string"
+          },
+          "unit": {
+            "description": "e.g. 'µg/m³'; AEROCAST never converts units",
+            "maxLength": 20,
+            "minLength": 1,
+            "title": "Unit",
+            "type": "string"
+          },
+          "times": {
+            "description": "hour-ending times, strictly increasing",
+            "items": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Times",
+            "type": "array"
+          },
+          "values": {
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1,
+            "title": "Values",
+            "type": "array"
+          },
+          "intervals": {
+            "description": "prediction intervals, when available",
+            "items": {
+              "$ref": "#/$defs/PredictionInterval"
+            },
+            "title": "Intervals",
+            "type": "array"
+          },
+          "spatial": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/SpatialResolution"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/DataFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "quality_flags": {
+            "description": "short machine-readable cautions, e.g. 'weak_horizon:+24h'",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Quality Flags",
+            "type": "array"
+          }
+        },
+        "required": [
+          "pollutant",
+          "unit",
+          "times",
+          "values"
+        ],
+        "title": "PollutantForecast",
+        "type": "object"
+      },
+      "PredictionInterval": {
+        "description": "Optional uncertainty band. `level` is its coverage, e.g. 0.8 for an 80% interval.",
+        "properties": {
+          "level": {
+            "exclusiveMaximum": 1,
+            "exclusiveMinimum": 0,
+            "title": "Level",
+            "type": "number"
+          },
+          "lower": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Lower",
+            "type": "array"
+          },
+          "upper": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Upper",
+            "type": "array"
+          }
+        },
+        "required": [
+          "level",
+          "lower",
+          "upper"
+        ],
+        "title": "PredictionInterval",
+        "type": "object"
+      },
+      "Provenance": {
+        "description": "Where the forecast came from, so it can be audited.",
+        "properties": {
+          "provider": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Provider",
+            "type": "string"
+          },
+          "model_name": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Model Name"
+          },
+          "generated_at": {
+            "format": "date-time",
+            "title": "Generated At",
+            "type": "string"
+          },
+          "input_data": {
+            "description": "the observations/weather inputs used, with their timestamps or sources",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Input Data",
+            "type": "array"
+          },
+          "training_data": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Training Data"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Notes"
+          }
+        },
+        "required": [
+          "provider",
+          "generated_at",
+          "input_data"
+        ],
+        "title": "Provenance",
+        "type": "object"
+      },
+      "SpatialResolution": {
+        "description": "What place a forecast describes. A forecast for one station is NOT a city-wide field, and says so here.",
+        "properties": {
+          "kind": {
+            "enum": [
+              "station",
+              "point",
+              "grid"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "station_id": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Station Id"
+          },
+          "station_name": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Station Name"
+          },
+          "lat": {
+            "anyOf": [
+              {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Lat"
+          },
+          "lon": {
+            "anyOf": [
+              {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Lon"
+          },
+          "distance_km": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "distance between the requested location and the place the forecast is for",
+            "title": "Distance Km"
+          },
+          "resolution_km": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "grid spacing when kind is 'grid'; absent for a station or a point",
+            "title": "Resolution Km"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "SpatialResolution",
+        "type": "object"
+      }
+    },
+    "description": "Returned by the provider. Validated in full before use.",
+    "properties": {
+      "contract_version": {
+        "anyOf": [
+          {
+            "maxLength": 10,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "'2' when the spatial/freshness/quality blocks are populated",
+        "title": "Contract Version"
+      },
+      "model_version": {
+        "maxLength": 80,
+        "minLength": 1,
+        "title": "Model Version",
+        "type": "string"
+      },
+      "issued_at": {
+        "format": "date-time",
+        "title": "Issued At",
+        "type": "string"
+      },
+      "location": {
+        "$ref": "#/$defs/ForecastLocation"
+      },
+      "horizon_hours": {
+        "maximum": 72,
+        "minimum": 1,
+        "title": "Horizon Hours",
+        "type": "integer"
+      },
+      "forecasts": {
+        "items": {
+          "$ref": "#/$defs/PollutantForecast"
+        },
+        "maxItems": 6,
+        "minItems": 1,
+        "title": "Forecasts",
+        "type": "array"
+      },
+      "provenance": {
+        "$ref": "#/$defs/Provenance"
+      }
+    },
+    "required": [
+      "model_version",
+      "issued_at",
+      "location",
+      "horizon_hours",
+      "forecasts",
+      "provenance"
+    ],
+    "title": "ForecastResponse",
+    "type": "object"
+  }
+}

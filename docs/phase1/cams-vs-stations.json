@@ -1,0 +1,336 @@
+{
+  "window": [
+    "2026-08-10T20:00Z",
+    "2026-10-09T20:00Z"
+  ],
+  "per_pollutant": {
+    "pm25": {
+      "stations": 60,
+      "best_shift_hours": 1,
+      "city_mean_correlation_by_shift": {
+        "-6": 0.263,
+        "-5": 0.295,
+        "-4": 0.329,
+        "-3": 0.364,
+        "-2": 0.4,
+        "-1": 0.431,
+        "0": 0.452,
+        "1": 0.454,
+        "2": 0.437,
+        "3": 0.408,
+        "4": 0.375,
+        "5": 0.34,
+        "6": 0.306
+      },
+      "cams_vs_stations": {
+        "n": 71820,
+        "bias": 19.9,
+        "mae": 30.03,
+        "rmse": 41.33,
+        "r": 0.287,
+        "obs_mean": 42.78
+      },
+      "cams_vs_stations_raw_unshifted": {
+        "n": 71820,
+        "bias": 19.75,
+        "mae": 30.0,
+        "rmse": 41.29,
+        "r": 0.281,
+        "obs_mean": 42.78
+      },
+      "per_station_r": {
+        "median": 0.355,
+        "p25": 0.292,
+        "p75": 0.422
+      },
+      "persistence_24h": {
+        "n": 62962,
+        "bias": -0.98,
+        "mae": 18.5,
+        "rmse": 30.4,
+        "r": 0.502,
+        "obs_mean": 42.9
+      },
+      "hour_of_day_climatology": {
+        "n": 71820,
+        "bias": 0.0,
+        "mae": 19.3,
+        "rmse": 28.23,
+        "r": 0.389,
+        "obs_mean": 42.78
+      },
+      "cams_scaled_on_second_half": {
+        "scale_fitted_on_first_half": 0.557,
+        "n": 35615,
+        "bias": -15.85,
+        "mae": 22.56,
+        "rmse": 34.87,
+        "r": 0.463,
+        "obs_mean": 49.25
+      }
+    },
+    "pm10": {
+      "stations": 60,
+      "best_shift_hours": 2,
+      "city_mean_correlation_by_shift": {
+        "-6": 0.343,
+        "-5": 0.346,
+        "-4": 0.357,
+        "-3": 0.375,
+        "-2": 0.396,
+        "-1": 0.415,
+        "0": 0.432,
+        "1": 0.44,
+        "2": 0.448,
+        "3": 0.447,
+        "4": 0.444,
+        "5": 0.439,
+        "6": 0.435
+      },
+      "cams_vs_stations": {
+        "n": 72885,
+        "bias": 33.59,
+        "mae": 91.66,
+        "rmse": 170.82,
+        "r": 0.256,
+        "obs_mean": 115.88
+      },
+      "cams_vs_stations_raw_unshifted": {
+        "n": 72885,
+        "bias": 32.53,
+        "mae": 90.79,
+        "rmse": 172.39,
+        "r": 0.243,
+        "obs_mean": 115.88
+      },
+      "per_station_r": {
+        "median": 0.376,
+        "p25": 0.195,
+        "p75": 0.504
+      },
+      "persistence_24h": {
+        "n": 64554,
+        "bias": -1.11,
+        "mae": 43.28,
+        "rmse": 67.63,
+        "r": 0.566,
+        "obs_mean": 114.36
+      },
+      "hour_of_day_climatology": {
+        "n": 72885,
+        "bias": -0.0,
+        "mae": 48.85,
+        "rmse": 67.59,
+        "r": 0.422,
+        "obs_mean": 115.88
+      },
+      "cams_scaled_on_second_half": {
+        "scale_fitted_on_first_half": 0.672,
+        "n": 36157,
+        "bias": -31.12,
+        "mae": 71.88,
+        "rmse": 95.16,
+        "r": 0.428,
+        "obs_mean": 129.53
+      }
+    },
+    "no2": {
+      "stations": 60,
+      "best_shift_hours": -1,
+      "city_mean_correlation_by_shift": {
+        "-6": 0.152,
+        "-5": 0.279,
+        "-4": 0.408,
+        "-3": 0.533,
+        "-2": 0.634,
+        "-1": 0.687,
+        "0": 0.673,
+        "1": 0.6,
+        "2": 0.485,
+        "3": 0.347,
+        "4": 0.195,
+        "5": 0.043,
+        "6": -0.092
+      },
+      "cams_vs_stations": {
+        "n": 73327,
+        "bias": -18.86,
+        "mae": 31.46,
+        "rmse": 46.12,
+        "r": 0.232,
+        "obs_mean": 51.55
+      },
+      "cams_vs_stations_raw_unshifted": {
+        "n": 73327,
+        "bias": -18.76,
+        "mae": 31.46,
+        "rmse": 46.18,
+        "r": 0.227,
+        "obs_mean": 51.55
+      },
+      "per_station_r": {
+        "median": 0.338,
+        "p25": 0.082,
+        "p75": 0.488
+      },
+      "persistence_24h": {
+        "n": 65309,
+        "bias": -0.61,
+        "mae": 15.25,
+        "rmse": 31.56,
+        "r": 0.685,
+        "obs_mean": 51.24
+      },
+      "hour_of_day_climatology": {
+        "n": 73327,
+        "bias": 0.0,
+        "mae": 15.9,
+        "rmse": 27.82,
+        "r": 0.725,
+        "obs_mean": 51.55
+      },
+      "cams_scaled_on_second_half": {
+        "scale_fitted_on_first_half": 1.413,
+        "n": 36291,
+        "bias": -10.82,
+        "mae": 31.87,
+        "rmse": 45.67,
+        "r": 0.256,
+        "obs_mean": 53.0
+      }
+    },
+    "o3": {
+      "stations": 60,
+      "best_shift_hours": 0,
+      "city_mean_correlation_by_shift": {
+        "-6": -0.081,
+        "-5": 0.116,
+        "-4": 0.323,
+        "-3": 0.523,
+        "-2": 0.695,
+        "-1": 0.818,
+        "0": 0.874,
+        "1": 0.859,
+        "2": 0.776,
+        "3": 0.637,
+        "4": 0.46,
+        "5": 0.263,
+        "6": 0.063
+      },
+      "cams_vs_stations": {
+        "n": 73186,
+        "bias": 70.79,
+        "mae": 73.14,
+        "rmse": 94.22,
+        "r": 0.44,
+        "obs_mean": 24.05
+      },
+      "cams_vs_stations_raw_unshifted": {
+        "n": 73186,
+        "bias": 70.79,
+        "mae": 73.14,
+        "rmse": 94.22,
+        "r": 0.44,
+        "obs_mean": 24.05
+      },
+      "per_station_r": {
+        "median": 0.613,
+        "p25": 0.361,
+        "p75": 0.709
+      },
+      "persistence_24h": {
+        "n": 65334,
+        "bias": -0.19,
+        "mae": 7.9,
+        "rmse": 17.58,
+        "r": 0.752,
+        "obs_mean": 24.44
+      },
+      "hour_of_day_climatology": {
+        "n": 73186,
+        "bias": 0.0,
+        "mae": 9.24,
+        "rmse": 16.51,
+        "r": 0.747,
+        "obs_mean": 24.05
+      },
+      "cams_scaled_on_second_half": {
+        "scale_fitted_on_first_half": 0.249,
+        "n": 36225,
+        "bias": -0.75,
+        "mae": 15.33,
+        "rmse": 24.43,
+        "r": 0.487,
+        "obs_mean": 25.62
+      }
+    },
+    "so2": {
+      "stations": 59,
+      "best_shift_hours": 0,
+      "city_mean_correlation_by_shift": {
+        "-6": 0.066,
+        "-5": 0.067,
+        "-4": 0.069,
+        "-3": 0.08,
+        "-2": 0.106,
+        "-1": 0.122,
+        "0": 0.131,
+        "1": 0.13,
+        "2": 0.118,
+        "3": 0.092,
+        "4": 0.056,
+        "5": 0.023,
+        "6": -0.003
+      },
+      "cams_vs_stations": {
+        "n": 71289,
+        "bias": -6.23,
+        "mae": 18.89,
+        "rmse": 28.29,
+        "r": 0.018,
+        "obs_mean": 30.89
+      },
+      "cams_vs_stations_raw_unshifted": {
+        "n": 71289,
+        "bias": -6.23,
+        "mae": 18.89,
+        "rmse": 28.29,
+        "r": 0.018,
+        "obs_mean": 30.89
+      },
+      "per_station_r": {
+        "median": 0.021,
+        "p25": -0.045,
+        "p75": 0.069
+      },
+      "persistence_24h": {
+        "n": 63230,
+        "bias": 0.01,
+        "mae": 8.78,
+        "rmse": 18.51,
+        "r": 0.734,
+        "obs_mean": 31.07
+      },
+      "hour_of_day_climatology": {
+        "n": 71289,
+        "bias": -0.0,
+        "mae": 10.76,
+        "rmse": 18.13,
+        "r": 0.695,
+        "obs_mean": 30.89
+      },
+      "cams_scaled_on_second_half": {
+        "scale_fitted_on_first_half": 1.151,
+        "n": 35155,
+        "bias": -5.07,
+        "mae": 19.61,
+        "rmse": 29.24,
+        "r": -0.007,
+        "obs_mean": 32.54
+      }
+    }
+  },
+  "notes": [
+    "CAMS cells over NCR are about 0.4 degrees (44 km), so stations inside one cell share one value."
+  ]
+}

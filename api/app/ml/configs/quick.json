@@ -1,0 +1,20 @@
+{
+  "pollutants": ["pm25"],
+  "horizons": [1, 6, 24],
+  "models": ["random_forest", "lightgbm"],
+  "seed": 20261010,
+  "test_frac": 0.2,
+  "n_folds": 3,
+  "fold_frac": 0.1,
+  "tune_horizon": 6,
+  "max_train_rows": {"random_forest": 30000, "lightgbm": 60000},
+  "max_eval_rows": 10000,
+  "n_jobs": 4,
+  "location_features": false,
+  "unseen_station_frac": 0.2,
+  "location_experiment_horizons": [6],
+  "interval_level": 0.8,
+  "ensemble_min_gain": 0.01,
+  "min_train_rows": 2000,
+  "allow_test_fixtures": false
+}

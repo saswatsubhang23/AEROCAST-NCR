@@ -1,0 +1,396 @@
+{
+  "generated_at": "2026-10-10T22:19:20Z",
+  "open_meteo": {
+    "provider": "Open-Meteo",
+    "licence": "CC BY 4.0 data; free API is non-commercial, 10,000 calls/day, 5,000/hour, 600/minute (their terms); commercial use needs a subscription",
+    "attribution": "Weather data by Open-Meteo.com; contains ECMWF, DWD, NOAA and other national weather services' model output",
+    "forecast_api": {
+      "status": 200,
+      "latency_ms": 1281,
+      "rate_headers": {},
+      "top_level_keys": [
+        "elevation",
+        "generationtime_ms",
+        "hourly",
+        "hourly_units",
+        "latitude",
+        "longitude",
+        "timezone",
+        "timezone_abbreviation",
+        "utc_offset_seconds"
+      ],
+      "hourly_units": {
+        "time": "iso8601",
+        "temperature_2m": "°C",
+        "relative_humidity_2m": "%",
+        "pressure_msl": "hPa",
+        "precipitation": "mm",
+        "cloud_cover": "%",
+        "wind_speed_10m": "km/h",
+        "wind_direction_10m": "°",
+        "boundary_layer_height": "m",
+        "shortwave_radiation": "W/m²",
+        "visibility": "m"
+      },
+      "hours": 552,
+      "first": "2026-10-03T00:00",
+      "last": "2026-10-25T23:00",
+      "snapped_to": {
+        "lat": 28.576448,
+        "lon": 77.18678,
+        "elevation_m": 214.0
+      },
+      "null_share": {
+        "temperature_2m": 0.0,
+        "relative_humidity_2m": 0.0,
+        "pressure_msl": 0.0,
+        "precipitation": 0.0,
+        "cloud_cover": 0.0,
+        "wind_speed_10m": 0.0,
+        "wind_direction_10m": 0.0,
+        "boundary_layer_height": 0.0,
+        "shortwave_radiation": 0.0,
+        "visibility": 0.0
+      },
+      "note": "wind speed is km/h unless wind_speed_unit=ms is requested (the app requests ms)",
+      "limits_probed": {
+        "past_days_92": "accepted",
+        "past_days_93": "accepted",
+        "forecast_days_16": "accepted",
+        "forecast_days_17": 400
+      }
+    },
+    "archive_api": {
+      "1940-01-01": {
+        "status": 200,
+        "non_null_temperature": true
+      },
+      "latest_available_hour": "2026-10-09T23:00",
+      "lag_hours": 23.3,
+      "rate_headers": {}
+    }
+  },
+  "cams_via_open_meteo": {
+    "provider": "Open-Meteo Air Quality API (ECMWF CAMS)",
+    "licence": "CC BY 4.0 data via Open-Meteo; CAMS data are Copernicus products (free, with attribution). The free API is non-commercial.",
+    "attribution": "Generated using Copernicus Atmosphere Monitoring Service information; Open-Meteo.com",
+    "request_92d_7d": {
+      "status": 200,
+      "latency_ms": 1829,
+      "rate_headers": {},
+      "hourly_units": {
+        "time": "iso8601",
+        "pm10": "μg/m³",
+        "pm2_5": "μg/m³",
+        "carbon_monoxide": "μg/m³",
+        "nitrogen_dioxide": "μg/m³",
+        "sulphur_dioxide": "μg/m³",
+        "ozone": "μg/m³",
+        "nitrogen_monoxide": "μg/m³",
+        "aerosol_optical_depth": "",
+        "dust": "μg/m³",
+        "uv_index": ""
+      },
+      "hours": 2376,
+      "first": "2026-07-10T00:00",
+      "last": "2026-10-16T23:00",
+      "null_share": {
+        "pm10": 0.015,
+        "pm2_5": 0.015,
+        "carbon_monoxide": 0.015,
+        "nitrogen_dioxide": 0.015,
+        "sulphur_dioxide": 0.015,
+        "ozone": 0.015,
+        "nitrogen_monoxide": 0.015,
+        "aerosol_optical_depth": 0.015,
+        "dust": 0.015,
+        "uv_index": 0.015
+      }
+    },
+    "limits_probed": {
+      "past_days_93": "accepted",
+      "forecast_days_8": 400
+    },
+    "cell_size_probe": {
+      "distinct_values_over_1.1_deg_of_longitude": 3,
+      "value_changes_at_longitude": [
+        77.0,
+        77.4
+      ],
+      "inferred_cell_width_deg": 0.4
+    }
+  },
+  "openaq": {
+    "provider": "OpenAQ v3",
+    "licence": "Per data provider (each location lists its licences; mostly CC BY 4.0 for government data); API terms require attribution",
+    "locations": {
+      "status": 200,
+      "latency_ms": 1742,
+      "rate_headers": {
+        "x-ratelimit-limit": "60",
+        "x-ratelimit-remaining": "59",
+        "x-ratelimit-used": "1",
+        "x-ratelimit-reset": "60"
+      },
+      "meta": {
+        "name": "openaq-api",
+        "website": "/",
+        "page": 1,
+        "limit": 1000,
+        "found": 115
+      },
+      "count_returned": 115,
+      "result_schema": {
+        "id": "int",
+        "name": "str",
+        "locality": "NoneType",
+        "timezone": "str",
+        "country": {
+          "id": "int",
+          "code": "str",
+          "name": "str"
+        },
+        "owner": {
+          "id": "int",
+          "name": "str"
+        },
+        "provider": {
+          "id": "int",
+          "name": "str"
+        },
+        "isMobile": "bool",
+        "isMonitor": "bool",
+        "instruments": [
+          {
+            "id": "int",
+            "name": "str"
+          }
+        ],
+        "sensors": [
+          {
+            "id": "int",
+            "name": "str",
+            "parameter": {
+              "id": "int",
+              "name": "str",
+              "units": "str",
+              "displayName": "str"
+            }
+          }
+        ],
+        "coordinates": {
+          "latitude": "float",
+          "longitude": "float"
+        },
+        "licenses": "NoneType",
+        "bounds": [
+          "float"
+        ],
+        "distance": "NoneType",
+        "datetimeFirst": {
+          "utc": "str",
+          "local": "str"
+        },
+        "datetimeLast": {
+          "utc": "str",
+          "local": "str"
+        }
+      }
+    },
+    "freshness_hours_since_last_datum": {
+      "n": 113,
+      "min": 0.8,
+      "p25": 79.8,
+      "median": 79.8,
+      "p75": 44318.6,
+      "max": 86933.8,
+      "within_3h": 1,
+      "within_24h": 1,
+      "older_than_7d": 39
+    },
+    "licences_listed": {
+      "US Public Domain": 1
+    },
+    "providers": {
+      "CPCB": 82,
+      "caaqm": 30,
+      "StateAir NewDelhi": 1,
+      "AirNow": 1,
+      "N/A": 1
+    },
+    "parameter_units_seen": {
+      "co": [
+        "ppb",
+        "µg/m³"
+      ],
+      "no": [
+        "ppb"
+      ],
+      "no2": [
+        "ppb",
+        "µg/m³"
+      ],
+      "nox": [
+        "ppb"
+      ],
+      "o3": [
+        "ppm",
+        "µg/m³"
+      ],
+      "pm10": [
+        "µg/m³"
+      ],
+      "pm25": [
+        "µg/m³"
+      ],
+      "relativehumidity": [
+        "%"
+      ],
+      "so2": [
+        "ppb",
+        "µg/m³"
+      ],
+      "temperature": [
+        "c"
+      ],
+      "wind_direction": [
+        "deg"
+      ],
+      "wind_speed": [
+        "m/s"
+      ]
+    },
+    "hours_endpoint": {
+      "status": 200,
+      "rate_headers": {
+        "x-ratelimit-limit": "60",
+        "x-ratelimit-remaining": "58",
+        "x-ratelimit-used": "2",
+        "x-ratelimit-reset": "59"
+      },
+      "result_schema": {
+        "value": "float",
+        "flagInfo": {
+          "hasFlags": "bool"
+        },
+        "parameter": {
+          "id": "int",
+          "name": "str",
+          "units": "str",
+          "displayName": "NoneType"
+        },
+        "period": {
+          "label": "str",
+          "interval": "str",
+          "datetimeFrom": {
+            "utc": "str",
+            "local": "str"
+          },
+          "datetimeTo": {
+            "utc": "str",
+            "local": "str"
+          }
+        },
+        "coordinates": "NoneType",
+        "summary": {
+          "min": "float",
+          "q02": "float",
+          "q25": "float",
+          "median": "float",
+          "q75": "float",
+          "q98": "float",
+          "max": "float",
+          "avg": "float",
+          "sd": "NoneType"
+        },
+        "coverage": {
+          "expectedCount": "int",
+          "expectedInterval": "str",
+          "observedCount": "int",
+          "observedInterval": "str",
+          "percentComplete": "float",
+          "percentCoverage": "float",
+          "datetimeFrom": {
+            "utc": "str",
+            "local": "str"
+          },
+          "datetimeTo": {
+            "utc": "str",
+            "local": "str"
+          }
+        }
+      }
+    }
+  },
+  "xkdr": {
+    "provider": "xKDR India air quality archive",
+    "licence": "Not stated in the responses inspected; to be confirmed with xKDR before redistribution",
+    "meta": {
+      "status": 200,
+      "latency_ms": 5033,
+      "rate_headers": {},
+      "body": {
+        "schema_version": "v1",
+        "exported_at": "2026-09-30T11:25:11+00:00",
+        "timezone_note": "collected_at is a naive timestamp in Indian Standard Time (UTC+05:30).",
+        "columns": {
+          "station_id": "VARCHAR",
+          "station_name": "VARCHAR",
+          "state_name": "VARCHAR",
+          "city_name": "VARCHAR",
+          "parameter_name": "VARCHAR",
+          "unit": "VARCHAR",
+          "collected_at": "TIMESTAMP",
+          "value": "DOUBLE",
+          "source": "VARCHAR ('cpcb_caaqm' | 'us_embassy')",
+          "year": "hive partition",
+          "month": "hive partition"
+        },
+        "measurements": {
+          "rows": 196521834,
+          "bytes": 409568028,
+          "n_months": 207,
+          "first_month": "2009-01",
+          "last_month": "2026-03"
+        },
+        "stations": 558,
+        "parameters": 15,
+        "your_tier": "full",
+        "max_rows_per_query": null,
+        "query_timeout_seconds": 90.0
+      }
+    },
+    "stations": {
+      "status": 200,
+      "rate_headers": {},
+      "total": 558,
+      "in_ncr_box": 72,
+      "result_schema": {
+        "station_id": "str",
+        "station_name": "str",
+        "state_name": "str",
+        "city_name": "str",
+        "source": "str",
+        "latitude": "float",
+        "longitude": "float",
+        "first_seen": "str",
+        "last_seen": "str",
+        "n_rows": "int",
+        "parameters": [
+          "str"
+        ]
+      },
+      "last_seen_hours_ago": {
+        "min": 4732.3,
+        "median": 9700.8,
+        "max": 16554.8
+      },
+      "first_seen_min": "2009-01-01T00:00:00"
+    },
+    "measurements": {
+      "status": 200,
+      "rate_headers": {},
+      "result_schema": null
+    }
+  }
+}

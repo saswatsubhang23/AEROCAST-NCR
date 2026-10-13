@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a1120;
+  --surface: #0f1829;
+  --surface-2: #142036;
+  --line: #22314d;
+  --fg: #e8eef8;
+  --fg-muted: #9db0cc;
+  --accent: #22d3ee;
+  --accent-2: #3b82f6;
+  --warn: #f59e0b;
+  --danger: #f87171;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgb(34 211 238 / 0.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgb(59 130 246 / 0.08), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* A translucent surface for controls floating over a map or 3D scene. The blur keeps text legible on bright imagery. */
+.glass {
+  background: rgb(10 17 32 / 0.74);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid rgb(255 255 255 / 0.09);
+  box-shadow: 0 10px 34px rgb(0 0 0 / 0.38), inset 0 1px 0 rgb(255 255 255 / 0.04);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .glass { background: rgb(10 17 32 / 0.94); }
+}
+
+.card {
+  background: linear-gradient(180deg, rgb(20 32 54 / 0.55), rgb(15 24 41 / 0.9));
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+dialog::backdrop {
+  background: rgb(5 9 18 / 0.7);
+}
+
+/* Entrance animations for overlays (Radix mounts/unmounts them); disabled by the reduced-motion rule below. */
+@keyframes tw-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tw-pop { from { opacity: 0; transform: translate(var(--tw-tx, 0), var(--tw-ty, 0)) scale(0.97); } to { opacity: 1; transform: translate(var(--tw-tx, 0), var(--tw-ty, 0)) scale(1); } }
+@keyframes tw-slide { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes tw-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.tw-fade { animation: tw-fade 150ms ease-out; }
+.tw-pop { animation: tw-fade 120ms ease-out; }
+.tw-slide { animation: tw-slide 180ms ease-out; }
+.skeleton { background: linear-gradient(90deg, var(--surface-2) 25%, var(--line) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: tw-shimmer 1.6s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

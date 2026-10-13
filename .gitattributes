@@ -1,0 +1,43 @@
+# =============================================================================
+# AEROCAST NCR - Git Attributes Configuration
+# =============================================================================
+
+# Auto-detect text files and normalize line endings to LF across OSes
+* text=auto eol=lf
+
+# Explicitly enforce LF for code and documents
+*.py text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.sql text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ini text eol=lf
+*.patch text eol=lf
+
+# Windows batch files must retain CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts must have LF
+*.sh text eol=lf
+
+# Binary media and artifact formats
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.joblib binary
+*.sqlite binary
+*.db binary
+*.tar.gz binary
+*.zip binary
